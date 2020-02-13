@@ -19,10 +19,11 @@ class VietnamCasualties implements ToModel, WithCustomCsvSettings, WithChunkRead
 {
     use Importable;
 
-    public function model(array $row): Casualty
+    public function model(array $casualtyData): Casualty
     {
         return new Casualty([
-
+            'service_number' => $casualtyData[0],
+            'name' => $casualtyData[4],
         ]);
     }
 
@@ -38,6 +39,6 @@ class VietnamCasualties implements ToModel, WithCustomCsvSettings, WithChunkRead
 
     public function getCsvSettings(): array
     {
-        return ['delimeter' => '|'];
+        return ['delimiter' => '|'];
     }
 }

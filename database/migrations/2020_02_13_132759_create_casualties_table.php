@@ -14,7 +14,8 @@ class CreateCasualtiesTable extends Migration
     public function up()
     {
         Schema::create('casualties', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->string('service_number')->unique();
+            $table->string('name');
             $table->timestamps();
         });
     }
