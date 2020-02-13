@@ -3,18 +3,22 @@
 namespace App\Domain\Casualties\Imports;
 
 use App\Domain\Casualties\Models\Casualty;
+use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
+use Maatwebsite\Excel\Concerns\WithProgressBar;
 
 /**
  * Class VietnamCasualties
  *
  * @package App\Domain\Casualties\Imports
  */
-class VietnamCasualties implements ToModel, WithCustomCsvSettings, WithChunkReading, WithBatchInserts
+class VietnamCasualties implements ToModel, WithCustomCsvSettings, WithChunkReading, WithBatchInserts, WithProgressBar
 {
+    use Importable;
+
     public function model(array $row): Casualty
     {
         return new Casualty([
