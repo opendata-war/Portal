@@ -167,6 +167,11 @@ return [
          */
 
         /*
+         * Application Domain Service Providers
+         */
+        App\Domain\Casualties\Providers\CasualtyServiceProvider::class,
+
+        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
